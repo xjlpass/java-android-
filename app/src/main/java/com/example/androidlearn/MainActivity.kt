@@ -2,46 +2,21 @@ package com.example.androidlearn
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.androidlearn.ui.theme.AndroidLearnTheme
+import androidx.databinding.DataBindingUtil
+import com.example.androidlearn.databinding.DataBindingDemoBinding
+import com.example.androidlearn.databingding.User
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            AndroidLearnTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
+        // 创建数据模型实例
+        val user = User("John Doe", 30)
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        // 使用 DataBinding 来绑定视图和数据
+        val binding: DataBindingDemoBinding = DataBindingUtil.setContentView(this, R.layout.data_binding_demo)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AndroidLearnTheme {
-        Greeting("Android")
+        // 设置数据到绑定对象
+        binding.user = user
     }
 }

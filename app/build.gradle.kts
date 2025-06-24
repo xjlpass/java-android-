@@ -20,6 +20,16 @@ android {
         }
     }
 
+    // ViewBinding 是 Android 提供的一种新的视图绑定机制，它自动生成一个与布局文件相对应的绑定类，用于访问视图
+    viewBinding {
+        enable = true
+    }
+
+    // 支持数据和 UI 的双向绑定。它不仅自动生成视图绑定类，还允许您在布局文件中直接绑定数据和执行逻辑，如条件显示、动态更新 UI 元素等
+    dataBinding {
+        enable = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -59,6 +69,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    // 添加协程核心库
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+    // Android 项目专用的库，提供了在 Android 环境中与主线程和后台线程交互的协程支持
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
