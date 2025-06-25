@@ -1,22 +1,26 @@
 package com.example.androidlearn
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.example.androidlearn.databinding.Book
 import com.example.androidlearn.databinding.DataBindingDemoBinding
-import com.example.androidlearn.databingding.User
 
-
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 创建数据模型实例
-        val user = User("John Doe", 30)
+        val binding = DataBindingUtil.setContentView<DataBindingDemoBinding>(this, R.layout.data_binding_demo)
 
-        // 使用 DataBinding 来绑定视图和数据
-        val binding: DataBindingDemoBinding = DataBindingUtil.setContentView(this, R.layout.data_binding_demo)
+        // 创建 Book 对象并初始化
+        val book = Book()
 
-        // 设置数据到绑定对象
-        binding.user = user
+        // 建立绑定关系
+        binding.book = book
+        book.name.set("平凡的世界")
+        book.author.set("路遥")
+
+
+        // 修改数据，无需调用 setText，UI 就能更新
+
     }
 }

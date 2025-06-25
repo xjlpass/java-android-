@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.application")  // 确保应用插件已启用
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -26,8 +26,8 @@ android {
     }
 
     // 支持数据和 UI 的双向绑定。它不仅自动生成视图绑定类，还允许您在布局文件中直接绑定数据和执行逻辑，如条件显示、动态更新 UI 元素等
-    dataBinding {
-        enable = true
+    buildFeatures {
+        dataBinding = true
     }
 
     buildTypes {
@@ -73,6 +73,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
     // Android 项目专用的库，提供了在 Android 环境中与主线程和后台线程交互的协程支持
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+    implementation("androidx.appcompat:appcompat:1.3.1")  // 或者使用最新版本
+    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
