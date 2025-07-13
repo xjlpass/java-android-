@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")  // 确保应用插件已启用
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -28,6 +29,7 @@ android {
     // 支持数据和 UI 的双向绑定。它不仅自动生成视图绑定类，还允许您在布局文件中直接绑定数据和执行逻辑，如条件显示、动态更新 UI 元素等
     buildFeatures {
         dataBinding = true
+        compose = true
     }
 
     buildTypes {
@@ -50,7 +52,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
