@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")  // 确保应用插件已启用
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
+    id ("org.jlleitschuh.gradle.ktlint") version "10.2.0"
 }
 
 android {
@@ -59,6 +60,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+ktlint {
+    android = true
+    outputToConsole = true
 }
 
 dependencies {
