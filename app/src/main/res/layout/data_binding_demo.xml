@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="book"
+            type="com.example.androidlearn.databinding.Book" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/et_name_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="书名1"
+            android:text="@{book.name}" />
+
+        <EditText
+            android:id="@+id/et_author_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="作者1"
+            android:text="@{book.author}" />
+
+        <EditText
+            android:id="@+id/et_name_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="书名2"
+            android:text="@={book.name}" />
+
+        <EditText
+            android:id="@+id/et_author_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="作者2"
+            android:text="@={book.author}" />
+
+    </LinearLayout>
+</layout>
