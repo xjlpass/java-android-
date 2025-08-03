@@ -21,5 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidLearn"
 include(":app")
-include(":service")
-include(":appModule")

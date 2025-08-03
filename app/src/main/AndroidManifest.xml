@@ -35,6 +35,24 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidLearn">
         </activity>
+        <activity
+            android:name=".animation.FrameAnimationActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidLearn">
+        </activity>
+        <activity
+            android:name=".animation.PropertyAnimationActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidLearn">
+        </activity>
+        <activity
+            android:name=".animation.TweenedAnimationActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidLearn">
+        </activity>
     </application>
 
 </manifest>
