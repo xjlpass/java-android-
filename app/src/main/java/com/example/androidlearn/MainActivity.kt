@@ -12,6 +12,7 @@ import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
 import com.example.androidlearn.databinding.Book
 import com.example.androidlearn.databinding.DataBindingDemoBinding
+import com.example.androidlearn.layoutparams.LayoutParamsActivity
 
 class MainActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity()  {
             "帧动画",
             "补间动画",
             "属性动画",
+            "布局属性ParamsLayout"
         )
 
         // 按钮与 Activity 的映射
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity()  {
             "帧动画" to FrameAnimationActivity::class.java,
             "补间动画" to TweenedAnimationActivity::class.java,
             "属性动画" to PropertyAnimationActivity::class.java,
+            "布局属性ParamsLayout" to LayoutParamsActivity::class.java
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)

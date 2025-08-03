@@ -53,6 +53,13 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidLearn">
         </activity>
+        <activity
+            android:name=".layoutparams.LayoutParamsActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidLearn">
+        </activity>
+
     </application>
 
 </manifest>
