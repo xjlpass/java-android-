@@ -3,16 +3,14 @@ package com.example.androidlearn
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidlearn.adapter.ButtonAdapter
 import com.example.androidlearn.animation.FrameAnimationActivity
 import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
-import com.example.androidlearn.databinding.Book
-import com.example.androidlearn.databinding.DataBindingDemoBinding
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
+import com.example.androidlearn.test.TestFigmaActivity
 
 class MainActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +36,8 @@ class MainActivity : AppCompatActivity()  {
             "帧动画",
             "补间动画",
             "属性动画",
-            "布局属性ParamsLayout"
+            "布局属性ParamsLayout",
+            "测试demo"
         )
 
         // 按钮与 Activity 的映射
@@ -46,7 +45,8 @@ class MainActivity : AppCompatActivity()  {
             "帧动画" to FrameAnimationActivity::class.java,
             "补间动画" to TweenedAnimationActivity::class.java,
             "属性动画" to PropertyAnimationActivity::class.java,
-            "布局属性ParamsLayout" to LayoutParamsActivity::class.java
+            "布局属性ParamsLayout" to LayoutParamsActivity::class.java,
+            "测试demo" to TestFigmaActivity::class.java
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
