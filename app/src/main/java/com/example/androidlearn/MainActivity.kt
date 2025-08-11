@@ -9,6 +9,7 @@ import com.example.androidlearn.adapter.ButtonAdapter
 import com.example.androidlearn.animation.FrameAnimationActivity
 import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
+import com.example.androidlearn.fragment.FragmentActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
 import com.example.androidlearn.test.TestFigmaActivity
 
@@ -37,7 +38,8 @@ class MainActivity : AppCompatActivity()  {
             "补间动画",
             "属性动画",
             "布局属性ParamsLayout",
-            "测试demo"
+            "测试demo",
+            "fragment"
         )
 
         // 按钮与 Activity 的映射
@@ -46,7 +48,8 @@ class MainActivity : AppCompatActivity()  {
             "补间动画" to TweenedAnimationActivity::class.java,
             "属性动画" to PropertyAnimationActivity::class.java,
             "布局属性ParamsLayout" to LayoutParamsActivity::class.java,
-            "测试demo" to TestFigmaActivity::class.java
+            "测试demo" to TestFigmaActivity::class.java,
+            "fragment" to FragmentActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
