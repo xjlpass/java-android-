@@ -15,7 +15,7 @@
             <option value="$PROJECT_DIR$/service" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="false" />
+        // 不写 resolveExternalAnnotations 默认为true
       </GradleProjectSettings>
     </option>
   </component>
