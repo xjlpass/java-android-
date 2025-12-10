@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")  // 确保应用插件已启用
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id ("org.jlleitschuh.gradle.ktlint") version "10.2.0"
+    id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
 }
 
 android {
@@ -69,6 +69,7 @@ ktlint {
 
 dependencies {
 
+    //集中管理项目中所有依赖的坐标和版本
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -77,10 +78,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    // 添加协程核心库
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
-    // Android 项目专用的库，提供了在 Android 环境中与主线程和后台线程交互的协程支持
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")  // 或者使用最新版本
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation(libs.androidx.recyclerview)
@@ -91,4 +88,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // 只添加了 kotlinx-coroutines-android,也可以使用Lunch
+    // kotlinx-coroutines-android 本身依赖 kotlinx-coroutines-core
+    //Gradle 会把 core 库也加入到编译和运行时 classpath
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
 }
