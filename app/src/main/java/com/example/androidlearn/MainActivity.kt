@@ -1,20 +1,21 @@
 package com.example.androidlearn
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidlearn.adapter.ButtonAdapter
 import com.example.androidlearn.animation.FrameAnimationActivity
 import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
-import com.example.androidlearn.databinding.Book
-import com.example.androidlearn.databinding.DataBindingDemoBinding
+import com.example.androidlearn.channel.ChannelActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
 
-class MainActivity : AppCompatActivity()  {
+class MainActivity : AppCompatActivity() {
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 下面代码与 DataBinding有关
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity()  {
             "帧动画",
             "补间动画",
             "属性动画",
-            "布局属性ParamsLayout"
+            "布局属性ParamsLayout",
+            "启动前台Service"
         )
 
         // 按钮与 Activity 的映射
@@ -46,7 +48,8 @@ class MainActivity : AppCompatActivity()  {
             "帧动画" to FrameAnimationActivity::class.java,
             "补间动画" to TweenedAnimationActivity::class.java,
             "属性动画" to PropertyAnimationActivity::class.java,
-            "布局属性ParamsLayout" to LayoutParamsActivity::class.java
+            "布局属性ParamsLayout" to LayoutParamsActivity::class.java,
+            "启动前台Service" to ChannelActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
