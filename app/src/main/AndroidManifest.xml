@@ -7,9 +7,11 @@
             前台 Service 通知	✅
             常驻通知	✅
             后台任务通知	✅ -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <!--     访问网络缺陷-->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -36,49 +38,58 @@
             android:name=".handler.HandlerActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
         <activity
             android:name=".handler.HandlerActivityB"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
         <activity
             android:name=".animation.FrameAnimationActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
         <activity
             android:name=".animation.PropertyAnimationActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
         <activity
             android:name=".animation.TweenedAnimationActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
         <activity
             android:name=".layoutparams.LayoutParamsActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
         <activity
             android:name=".channel.ChannelActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AndroidLearn">
-        </activity>
+            android:theme="@style/Theme.AndroidLearn"></activity>
+        <activity
+            android:name=".surface.SurfaceActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidLearn"></activity>
 
         <service
             android:name=".DemoService"
             android:exported="false"
-            android:foregroundServiceType="dataSync"/>
+            android:foregroundServiceType="dataSync" />
+
+        <!--     android:process=":remote"   只有同一个应用可以访问该进程 -->
+        <!--     不带冒号（如 remote）：表示全局进程 -->
+        <service
+            android:name=".surface.SurfaceService"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.surface.SURFACE_SERVICE" />
+            </intent-filter>
+        </service>
 
     </application>
 

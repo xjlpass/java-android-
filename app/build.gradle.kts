@@ -31,6 +31,7 @@ android {
     buildFeatures {
         dataBinding = true
         compose = true
+        aidl = true
     }
 
     buildTypes {
@@ -81,6 +82,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.3.1")  // 或者使用最新版本
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.media3.exoplayer)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -12,6 +12,7 @@ import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
 import com.example.androidlearn.channel.ChannelActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
+import com.example.androidlearn.surface.SurfaceActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +41,8 @@ class MainActivity : AppCompatActivity() {
             "补间动画",
             "属性动画",
             "布局属性ParamsLayout",
-            "启动前台Service"
+            "启动前台Service",
+            "surfaceView"
         )
 
         // 按钮与 Activity 的映射
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             "属性动画" to PropertyAnimationActivity::class.java,
             "布局属性ParamsLayout" to LayoutParamsActivity::class.java,
             "启动前台Service" to ChannelActivity::class.java,
+            "surfaceView" to SurfaceActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
