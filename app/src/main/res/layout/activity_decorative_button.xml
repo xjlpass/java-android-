@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 装饰器模式测试用Button -->
+    <Button
+        android:id="@+id/btn_decorative_test"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="测试装饰器（防抖+圆角）"
+    android:textSize="16sp"
+    android:textColor="#333333"
+    android:background="@android:color/white"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
