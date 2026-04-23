@@ -12,6 +12,7 @@ import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
 import com.example.androidlearn.channel.ChannelActivity
 import com.example.androidlearn.decorator.DecoratorActivity
+import com.example.androidlearn.interceptor.InterceptorActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
 import com.example.androidlearn.menu.MenuActivity
 import com.example.androidlearn.surface.SurfaceActivity
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             "surfaceView",
             "menu",
             "装饰器模式",
+            "责任链模式",
         )
 
         // 按钮与 Activity 的映射
@@ -59,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             "surfaceView" to SurfaceActivity::class.java,
             "menu" to MenuActivity::class.java,
             "装饰器模式" to DecoratorActivity::class.java,
+            "责任链模式" to InterceptorActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
