@@ -92,6 +92,11 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AndroidLearn"
             tools:ignore="MissingClass"></activity>
+        <activity android:name=".okhttp.OkHttpActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidLearn"
+            tools:ignore="MissingClass"></activity>
 
         <service
             android:name=".DemoService"

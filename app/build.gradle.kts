@@ -96,4 +96,7 @@ dependencies {
     //Gradle 会把 core 库也加入到编译和运行时 classpath
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
+
+    // OkHttp
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }

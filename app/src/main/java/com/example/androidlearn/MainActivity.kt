@@ -15,6 +15,7 @@ import com.example.androidlearn.decorator.DecoratorActivity
 import com.example.androidlearn.interceptor.InterceptorActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
 import com.example.androidlearn.menu.MenuActivity
+import com.example.androidlearn.okhttp.OkHttpActivity
 import com.example.androidlearn.surface.SurfaceActivity
 
 class MainActivity : AppCompatActivity() {
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             "menu",
             "装饰器模式",
             "责任链模式",
+            "okhttp",
         )
 
         // 按钮与 Activity 的映射
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             "menu" to MenuActivity::class.java,
             "装饰器模式" to DecoratorActivity::class.java,
             "责任链模式" to InterceptorActivity::class.java,
+            "okhttp" to OkHttpActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
