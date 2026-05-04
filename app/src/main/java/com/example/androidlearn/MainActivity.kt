@@ -12,6 +12,7 @@ import com.example.androidlearn.animation.PropertyAnimationActivity
 import com.example.androidlearn.animation.TweenedAnimationActivity
 import com.example.androidlearn.channel.ChannelActivity
 import com.example.androidlearn.decorator.DecoratorActivity
+import com.example.androidlearn.handlethread.FileWriteActivity
 import com.example.androidlearn.interceptor.InterceptorActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
 import com.example.androidlearn.menu.MenuActivity
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
             "装饰器模式",
             "责任链模式",
             "okhttp",
+            "handlerThread",
         )
 
         // 按钮与 Activity 的映射
@@ -65,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             "装饰器模式" to DecoratorActivity::class.java,
             "责任链模式" to InterceptorActivity::class.java,
             "okhttp" to OkHttpActivity::class.java,
+            "handlerThread" to FileWriteActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
