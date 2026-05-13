@@ -22,6 +22,37 @@ import com.example.androidlearn.IACService
     Stub：服务端的接口实现，收到 Binder 请求后调用真正的方法。
     Proxy：客户端调用的代理对象，把方法调用打包，通过 Binder 传给 Stub。
     Binder 驱动：内核模块，负责跨进程传输数据
+
+* android 进程优先级
+*   Android 靠 LMK 低内存杀手 按优先级杀进程,优先级越低 越先被杀死
+* LMK 是什么？
+* Low Memory Killer
+* 和 Linux 原生 OOM 的区别
+        Linux 原生 OOM：内存彻底耗尽才杀，比较粗暴
+        Android LMK：内存还剩一点就提前主动杀，更流畅、不卡顿、不卡死整机
+android 优先级（从高到低）：前台进程》可见进程》服务进程》后台进程》空进程
+        * 前台进程（Foreground）
+            最高优先级，几乎不杀
+            包含正在 onResume() 可交互的 Activity
+            前台 Service（startForeground）
+            绑定到前台 Activity 的 Service
+            正在执行生命周期回调的组件
+        2. 可见进程（Visible）
+            可见但不可交互（Activity 处于 onPause()）
+            被弹窗 / 非全屏页面遮挡
+            一般不杀，内存极紧时才杀
+        3. 服务进程（Service）
+            含通过 startService 启动的后台服务（如音乐、下载）
+            无界面，长期后台运行
+            内存不足时优先杀这类进程
+        4. 后台进程（Background）
+            所有 Activity 都 onStop()，完全不可见
+            退到后台的普通 App
+            内存紧张时最先被杀，可保留最近几个以加快恢复
+        5. 空进程（Empty）
+            无任何活跃组件（Activity/Service/Broadcast）
+            仅留进程缓存，用于下次快速启动
+            优先级最低，随时可杀
 * */
 class BinderActivity : AppCompatActivity() {
 
