@@ -108,6 +108,25 @@
             android:theme="@style/Theme.AndroidLearn"
             tools:ignore="MissingClass"></activity>
 
+        <!-- Scheme 目标Activity 配置 -->
+        <activity
+            android:name=".scheme.SchemeActivity"
+            android:exported="true"
+            android:launchMode="singleTask"> <!-- 必须singleTask 触发onNewIntent -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- 自定义Scheme规则：myapp://jump/detail -->
+                <data
+                    android:scheme="myapp"
+                    android:host="jump"
+                    android:path="/detail" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".DemoService"
             android:exported="false"

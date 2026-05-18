@@ -18,6 +18,7 @@ import com.example.androidlearn.interceptor.InterceptorActivity
 import com.example.androidlearn.layoutparams.LayoutParamsActivity
 import com.example.androidlearn.menu.MenuActivity
 import com.example.androidlearn.okhttp.OkHttpActivity
+import com.example.androidlearn.scheme.SchemeActivity
 import com.example.androidlearn.surface.SurfaceActivity
 
 class MainActivity : AppCompatActivity() {
@@ -54,7 +55,8 @@ class MainActivity : AppCompatActivity() {
             "责任链模式",
             "okhttp",
             "handlerThread",
-            "binderdemo",
+            // "binderdemo",
+            "scheme",
         )
 
         // 按钮与 Activity 的映射
@@ -70,16 +72,27 @@ class MainActivity : AppCompatActivity() {
             "责任链模式" to InterceptorActivity::class.java,
             "okhttp" to OkHttpActivity::class.java,
             "handlerThread" to FileWriteActivity::class.java,
-            "binderdemo" to BinderActivity::class.java,
+            // "binderdemo" to BinderActivity::class.java,
+            "scheme" to SchemeActivity::class.java,
         )
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
         recyclerView.adapter = ButtonAdapter(buttonList) { buttonName ->
-            activityMap[buttonName]?.let { targetActivity ->
-                val intent = Intent(this, targetActivity)
-                startActivity(intent)
+            when (buttonName) {
+                // 专门处理 Scheme 跳转
+                "scheme" -> {
+                    val schemeUrl = "myapp://jump/detail?name=菜单跳转&age=20"
+                    val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(schemeUrl))
+                    startActivity(intent)
+                }
+                // 原来的普通跳转
+                else -> {
+                    activityMap[buttonName]?.let { targetActivity ->
+                        val intent = Intent(this, targetActivity)
+                        startActivity(intent)
+                    }
+                }
             }
         }
-
     }
 }
