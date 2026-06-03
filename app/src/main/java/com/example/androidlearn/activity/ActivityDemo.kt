@@ -28,6 +28,11 @@ FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS  标识位
      * android:configChanges="orientation|screenSize"
      * 则表示由应用自行处理配置变化，系统不会重建 Activity，而是回调：onConfigurationChanged()
      *
+     *
+   Intent 内部有一个 Bundle 类型成员变量 mExtras，
+        调用 putExtra() 时，本质是向 mExtras 中存储键值对数据；
+        调用 getExtra() 时，则是从 mExtras 中读取数据。
+        因此 Intent 实际上是通过 Bundle 来实现数据传递的
  *
     * */
 class ActivityDemo {

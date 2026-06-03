@@ -7,6 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.androidlearn.R
 
 // 补间动画
+/*
+*  动画包括 帧动画，补间动画，属性动画
+*
+*  补间动画和属性动画对比：
+* 动画类型	视觉效果	真正属性是否改变	影响点击区域
+    View 动画	看起来移动了	❌ 不变	❌ 不变
+    属性动画	看起来移动了	✅ 改变	✅ 改变
+* */
 class TweenedAnimationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

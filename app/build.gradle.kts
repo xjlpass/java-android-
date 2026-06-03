@@ -3,7 +3,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jlleitschuh.gradle.ktlint") version "10.2.0"
+    id("org.jetbrains.kotlin.kapt")
 }
+
 
 android {
     namespace = "com.example.androidlearn"
@@ -99,4 +101,13 @@ dependencies {
 
     // OkHttp
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // Room Google 封装数据库框架
+    val roomVersion = "2.8.4"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Kotlin 协程支持
+    implementation("androidx.room:room-ktx:$roomVersion")
 }
