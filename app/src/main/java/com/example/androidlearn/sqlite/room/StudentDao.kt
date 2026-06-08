@@ -8,23 +8,35 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface StudentDao {
 
-    @Insert
-    suspend fun insert(student: Student)
+    // 查询全部学生，Flow 可以自动监听数据库变化
+    @Query("SELECT * FROM student ORDER BY id DESC")
+    fun getAllStudents(): Flow<List<Student>>
 
-    @Update
-    suspend fun update(student: Student)
-
-    @Delete
-    suspend fun delete(student: Student)
-
-    @Query("SELECT * FROM student")
-    suspend fun getAll(): List<Student>
-
-    // suspend 支持协程异步操作，避免阻塞 UI
+    // 根据 id 查询单个学生
     @Query("SELECT * FROM student WHERE id = :id")
-    suspend fun getById(id: Int): Student?
+    suspend fun getStudentById(id: Int): Student?
 
-    // LiveData/Flow
-    @Query("SELECT * FROM student")
-    fun getAllFlow(): Flow<List<Student>>
+    // 插入学生
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertStudent(student: Student)
+
+    // 批量插入
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertStudents(students: List<Student>)
+
+    // 修改学生
+    @Update
+    suspend fun updateStudent(student: Student)
+
+    // 删除学生
+    @Delete
+    suspend fun deleteStudent(student: Student)
+
+    // 根据 id 删除
+    @Query("DELETE FROM student WHERE id = :id")
+    suspend fun deleteStudentById(id: Int)
+
+    // 删除全部
+    @Query("DELETE FROM student")
+    suspend fun deleteAllStudents()
 }
