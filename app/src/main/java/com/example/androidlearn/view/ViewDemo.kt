@@ -168,6 +168,13 @@ package com.example.androidlearn.view
     谁有：ViewGroup、View 都有
     返回 true = 消费了（事件到此结束）
     返回 false = 不消费（往上抛）
+    *
+    *
+    事件分发流程
+    * 事件从 Activity → ViewGroup → View 逐层分发；
+    * ViewGroup 通过 onInterceptTouchEvent 决定是否拦截；
+    * View 通过 onTouchEvent 决定是否消费；
+    * 一旦某个 View 在 ACTION_DOWN 返回 true，则整个事件序列优先交给它处理，除非父 ViewGroup 后续拦截，此时子 View 会收到 ACTION_CANCEL。
 *
 * */
 class ViewDemo {
